@@ -1,0 +1,73 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Slider - setinterval</title>
+	<style>
+		img{max-width: 400px;}
+	</style>
+</head>
+<body>
+
+	<img src="img/1.jpg" alt="image" title="image" id="monImage">
+
+	<script>
+		/* EXERCICE : Réalisez un slider 
+			Pour cela créer une fonction qui change d'image et faites un rappel de la fonction automatique pour que le slider change d'image tout seul.
+		*/
+		let img = 1;
+
+		function slider(){
+
+			img += 1; // img = img + 1
+
+			//récupération de l'image :
+			let image = document.getElementById('monImage');
+				//console.log( image );
+
+			image.setAttribute('src', "img/"+ img +".jpg")
+				console.log( img );
+
+			if( img == 4 ){ //SI la valeur de la variable img est égale à 4
+
+				//clearInterval( timer ); // Ici, on stoppe l'appel automatique de la fonction (du au setInterval() ) 
+
+				img = 0; //Ici, on redéfini la variable 'img' à ZERO pour que la slider tourne en boucle (il faut bien sur mettre le clearInterval() en commentaire pour que cela fonctionne)
+			}
+		}
+
+		//rappel de la fonction slider() toutes les 1 seconde
+		let timer = window.setInterval( 'slider()', 1000);
+		
+		//Version Karim :
+		// function slide(){
+
+		// 	let attribut = slider.getAttribute('src'); //img/1.jpg
+		// 		console.log( attribut ); 
+			
+		// 	switch( attribut ){
+
+		// 		case 'img/1.jpg':
+		// 			slider.src = 'img/2.jpg';
+		// 		break;
+
+		// 		case 'img/2.jpg':
+		// 			slider.src = 'img/3.jpg';
+		// 		break;
+
+		// 		case 'img/3.jpg':
+		// 			slider.src = 'img/4.jpg';
+		// 		break;
+
+		// 		case 'img/4.jpg':
+		// 			slider.src = 'img/1.jpg';
+		// 		break;
+
+		// 	}
+		// }
+
+  //       let timer = window.setInterval( 'slide()', 2000 );
+
+	</script>
+</body>
+</html>

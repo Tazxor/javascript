@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercice change couleur</title>
+	<style>
+		.bleue{
+			width: 500px;
+			height: 500px;
+			border: 1px solid;
+
+		}
+	</style>
+</head>
+<body>
+	<!-- Exercice : Créez une div (background : de couleur bleue à faire en javascript) et créez une fonction pour changer la couleur au click de la div de la facon suivante :
+		Si c'est bleu on change en rouge,
+		Si c'est rouge on change en jaune,
+		Si c'est jaune on change en bleu,
+	 -->
+	<div class="bleue"></div>
+
+	<script>
+		let div = document.getElementsByClassName("bleue");
+		div[0].style.backgroundColor = "blue";
+		div[0].onclick = function(){
+			let fondCouleur = div[0].style.backgroundColor;
+			switch (fondCouleur) {
+				case 'blue':
+				div[0].style.backgroundColor = 'tomato'
+					break;
+				case 'tomato':
+				div[0].style.backgroundColor = 'gold'
+					break;
+				case 'gold':
+				div[0].style.backgroundColor = 'blue'
+					break;
+			
+
+			}
+		}
+	
+		
+		
+	</script>
+</body>
+</html>

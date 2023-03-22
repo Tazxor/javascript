@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+	<meta charset="utf-8">
+	<title>Exercice input</title>
+</head>
+<body>
+	<form method="">
+		<label for="pseudo">Pseudo</label><br>
+		<input type="text" name="pseudo" id="pseudo"><br><br>
+		<input type="submit" name="">
+	</form>
+
+	<script>
+		//EXERCICE : faites en sorte d'afficher une bordure rouge lorsque vous sélectionné un 'input' et afficher une bordure verte lorsque vous quittez l'input.	
+		let champ = document.getElementById('pseudo');
+			console.log( champ );
+
+		champ.onfocus = function(){
+			//onfocus : lorsque l'on sélectionne un input
+
+			champ.style.border = "5px solid red";
+		}
+
+		champ.onblur = function(){
+
+			this.style.border = "3px solid green";
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+	<meta charset="utf-8">
+	<title>Onclick CSS</title>
+	<style>
+		div{
+		    width: 500px;
+		    margin: 0 auto;
+		    height: 300px;
+		    padding: 50px;
+		    border: 2px solid;
+		}
+	</style>
+</head>
+<body>
+
+	<div>
+		<h1>Cliquez dans la div</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxieme paragraphe</p>
+		<p>Troisieme paragraphe</p>
+	</div>
+
+	<script>
+		
+		//récupération des paragraphes :
+		let para = document.getElementsByTagName('p');
+			console.log( para );
+
+		function modifCSS(){
+
+			//Modification du style de TOUS les paragraphes
+			for( let i = 0; i < para.length; i++ ){
+
+				para[i].style.border = "5px solid red";
+				para[i].style.color = "white";
+				para[i].style.backgroundColor = "orange";
+				para[i].style.padding = "15px";
+				para[i].style.fontSize = "25px";
+			}
+
+			//Je ne veux plus afficher le <h1>
+			//console.log( document.getElementsByTagName('h1') );
+			document.getElementsByTagName('h1')[0].style.display = 'none';
+
+		}
+
+		//récupération de la div et au click on déclenche la fonction :
+		//console.log( document.getElementsByTagName('div') );
+		document.getElementsByTagName('div')[0].onclick = modifCSS;
+
+			//NE PAS METTRE LES PARENTHESES !! Sinon la fonction va s'exécuter toute seule
+
+	</script>
+
+</body>
+</html>

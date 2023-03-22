@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Onclick</title>
+
+	<style>
+		img{width: 300px;}
+	</style>
+</head>
+<body>
+
+	<!-- Ecriture du JS dans un attribut HTML (ici, l'evenement onclick) PAS forcément recommandé... -->
+	<h1 onclick="alert('Mon code JS')">Mon titre h1</h1>
+
+	<img src="img/KB.jpg" alt="Avatar de Kobe" title='Icone Kobe' class="image"><br>
+
+	<button id="changer">Changer l'image, le title, et le texte alternatif</button>
+
+	<script>
+		
+		//Je récupère le bouton :
+		let btn = document.getElementById('changer');
+			console.log( btn );
+
+		btn.onclick = function(){
+
+			//affichage dans la console de la balise <img> récupérée par son nom de classe 
+			let image = document.getElementsByClassName('image');
+				console.log( image );
+
+			image[0].src = "img/MJ.jpg";
+			image[0].alt = "Avatar de Jordan";
+			image[0].title = "Image de Jordan";
+		}
+
+	</script>
+
+</body>
+</html>

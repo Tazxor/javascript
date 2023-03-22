@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Scroll</title>
+	<style>
+		div{
+			width: 300px;
+    		height: 300px;
+    		background: grey;
+    		margin: 20px;
+		}
+		.rouge{
+			background: tomato;
+		}
+		aside{
+			display:none; /* Ici, on n'affiche pas l' <aside> */
+		}
+	</style>
+</head>
+<body>
+
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<aside>
+		<div class="rouge"></div>
+		<div class="rouge"></div>
+		<div class="rouge"></div>
+	</aside>
+
+	<script>
+		
+		window.onscroll = function(){
+			//lors du scroll dans la fenêtre, on va exécuter une fonction
+
+			console.log( window.scrollY );
+			//window.scrollY : retourne la distance en px par rapport au haut de la fenêtre et la barre de scroll
+
+			if( window.scrollY > 600 ){ //SI la distance de la barre de scroll par rapport au haut de la fenêtre est supérieure à 600px, alors on mets en display : block; la balise <aside>
+
+				document.getElementsByTagName('aside')[0].style.display = "block";
+			}
+			else{ //SINON, c'est que la distance est inférieur ou égal à 600px et donc remets l' <aside> en display:none;
+
+				document.querySelector('aside').style.display = 'none';
+			}
+		}
+
+	</script>
+</body>
+</html>

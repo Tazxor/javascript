@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+	<meta charset="utf-8">
+	<title>Keydown</title>
+	<style>
+		#move{
+		    width: 100px;
+		    height: 100px;
+		    border: 2px solid;
+		    background: gold;
+		    padding:  5px;	
+
+		    position: relative;
+		    /* On précise que notre élément sera en position 'relative' ce qui nous permettra de lui appliquer les propriétés: top, left, right, bottom */	
+		}
+	</style>
+</head>
+<body>
+
+	<div id="move">Appuyer sur les flèches directionnelles du clavier</div>
+
+	<script>
+		
+		function clavier( event ){ //le paramètre 'event' représente l'evenement "cliquer sur une touche du clavier"
+
+			window.event;
+				//console.log( event );
+
+			let move = document.getElementById('move');
+				//console.log( move );
+
+			if( event.key == "ArrowUp" ){ //SI on a cliqué sur la fleche du haut
+
+				console.log( "Fleche du Haut" );
+
+				//console.log( move.offsetTop );
+				//La propriété offsetTop : retourne la distance en nombre de pixel entre le haut de l'élément (ici nous le <body>) et la position de l'élément
+
+				//Ici, on applique sur notre élément (la div#move) la propriété css top (car notre élément est en postiion relative) et cette propriété est égale à : la position initiale du haut de notre élément auquel on lui enlève 10 px
+				move.style.top = ( move.offsetTop - 18) + "px";
+
+			}
+			else if( event.key == "ArrowDown" ){ //SINON SI on a cliqué sur la fleche du bas
+				console.log( "Fleche du Bas");
+
+				move.style.top = ( move.offsetTop + 10 ) + "px";
+			}
+			else if( event.key == "ArrowRight" ){ //SINON SI on a cliqué sur la fleche de droite
+				console.log( "Fleche du droite");
+
+				move.style.left = ( move.offsetLeft + 10 ) + "px";
+
+			}
+			else if( event.key == "ArrowLeft" ){ //SINON SI on a cliqué sur la fleche de gauche
+				console.log( "Fleche du gauche");
+
+				move.style.left = ( move.offsetLeft - 18 ) + "px";
+			}
+		}
+
+		//lorsque l'on va presser une touche du clavier, on va exécuter la fonction 'clavier'
+		document.onkeydown = clavier;
+
+	</script>
+
+</body>
+</html>

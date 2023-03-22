@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+	<meta charset="utf-8">
+	<title>Formulaire</title>
+</head>
+<body>
+
+	<form method="">
+		<input type="text" name="" placeholder="Saisir un code couleur" id="fond" >
+		<input type="submit" name="">
+	</form>
+
+	<script>
+		//lien mozilla developper : explication expressions rationnelles (regex)
+		//https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Regular_Expressions
+
+		//récupération du formulaire (donc de la balise <form>)
+		let form = document.getElementsByTagName('form');
+			console.log( form );
+			
+		//Récupération de l'input (le champ à remplir)
+		let fond = document.getElementById('fond');
+			console.log( fond);
+
+		form[0].onsubmit = function( event ){ //lorsque je valide le formulaire 
+		//La propriété 'onsubmit" s'exécute sur le formulaire
+
+			event.preventDefault(); //Permet de stopper le comprotement par défaut, qui est ici le rechargement de la page lorsque l'on valide un formulaire
+
+			//récupération de la valeur sasiie par l'utilisateur :
+			let codeCouleur = fond.value;
+				console.log( codeCouleur );
+
+			let regex = /^[0-9a-fA-F]{6}$/; //Voici une expression régulière (regex)
+			//Ici, notre exepression précise que dans la chaine, les caractères sont les chiffres de 0 à 9 et les lettres de a à f en minuscule et MAJUSCULE
+				console.log( regex );
+
+			if( regex.test( codeCouleur ) ){
+			//méthode test( chaine ) : verifie si il y a une corresopndance entre 'codeCouleur' et une expression rationnelle (ici, 'regex')
+			//elle retournera soit true en cas de succès sinon 'false' si ca ne correspond pas
+
+				//récupération de la balise body et on veut lui ajouter un background en fonction de la saisie de l'utilisateur
+				document.body.style.backgroundColor = '#'+ codeCouleur ;
+			}
+			else{ //SINON, c'est que la saise de l'internaute ne corresopnd au regex et donc on affiche une message d'erreur
+
+				alert('veuillez renseigner une expression correcte (0-9 et a-f) ');
+			}
+		}
+	</script>
+
+</body>
+</html>

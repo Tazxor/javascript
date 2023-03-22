@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caroussel</title>
+    <style>
+        img {
+            width: 300px;
+        };
+    </style>
+</head>
+
+<body>
+    <img src="img/KB.jpg" alt="Avatar de Kobe" title='Kobe' id="caroussel">
+
+
+    <script>
+        let image = document.getElementById('caroussel');
+        console.log(image);
+
+
+        image.onclick = function () {
+
+            let attribut = image.getAttribute('src');
+            console.log(attribut);
+            switch( attribut ){
+                case 'img/KB.jpg':
+                    image.src = 'img/MJ.jpg';
+                    image.alt= "avatar MJ";
+					image.title= "titre MJ";
+                break;
+
+                case 'img/MJ.jpg':
+                    image.src = 'img/RB.jpg';
+                    image.alt= "avatar CB";
+					image.title= "titre CB";
+                break;
+
+                case 'img/RB.jpg':
+                    image.src = 'img/SO.jpg';
+					image.alt= "avatar SO";
+					image.title= "titre SO";
+                break;
+
+                case 'img/SO.jpg':
+                    image.src = 'img/KB.jpg';
+                    image.alt= "avatar KB";
+					image.title= "titre KB";
+                break;
+
+            }
+        }
+    </script>
+</body>
+
+</html>

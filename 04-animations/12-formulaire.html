@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Formulaire</title>
+</head>
+<body>
+
+	<form method="">
+		<label for="pseudo" >Pseudo</label><br>
+		<input type="text" name="pseudo" id="pseudo" placeholder="5 à 15 caractères"><br><br>
+
+		<label for="password" >Password</label><br>
+		<input type="text" name="password" id="password" placeholder="8 à 12 caractères"><br><br>
+
+		<input type="submit" name="" onclick="result()">
+		<!-- Ici, nousavons mis du JS dans le HTML et lorsque l'on va cliquer sur le bouton, on va déclencher la fonction result() -->
+	</form>
+
+	<script>
+
+		function result(){
+
+			let pseudo = document.getElementById('pseudo');
+
+			if( (pseudo.value.length < 5 || pseudo.value.length > 15) || (password.value.length < 8 || password.value.length > 12 ) ){
+
+				alert('Pseudo : 5 à 15 caractères \n Password : 8 à 12 caractères');
+			}
+			else{
+
+				alert('Pseudo renseigné : '+ pseudo.value + '\n' + 'Password resneigné :' + password.value);
+			}
+		}
+
+	</script>
+</body>
+</html>
